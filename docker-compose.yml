@@ -1,0 +1,16 @@
+services:
+  flask-app:
+    build:
+      context: flask-app
+      dockerfile: Dockerfile
+    image: kathrynforrest/flask-running-app:latest
+    # No ports here — Flask stays internal behind Nginx
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - flask-app
