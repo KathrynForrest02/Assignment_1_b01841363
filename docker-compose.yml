@@ -3,7 +3,7 @@ services:
     build:
       context: ./assignment_1_flask_app
       dockerfile: Dockerfile
-    image: kathrynforrest/flask-running-app:latest
+    image: kathrynforrest/assignment_1:latest
     # No ports here — Flask stays internal behind Nginx
 
   nginx:
